@@ -66,6 +66,39 @@ function getPostLoginRedirect() {
 }
 
 
+function isAdminRedirect() {
+    return getPostLoginRedirect() === "admin-products.html";
+}
+
+
+async function handleOAuthSignIn(session) {
+
+    if (!isAdminRedirect()) {
+        window.location.href = getPostLoginRedirect();
+        return;
+    }
+
+    const { data: profile, error } = await window.supabaseClient
+        .from("profiles")
+        .select("role")
+        .eq("id", session.user.id)
+        .maybeSingle();
+
+    if (!error && profile?.role === "admin") {
+        window.location.href = getPostLoginRedirect();
+        return;
+    }
+
+    showLoginMessage("هذا الحساب لا يملك صلاحية دخول لوحة الإدارة.");
+
+}
+
+
+function isGoogleCallback() {
+    return new URLSearchParams(window.location.search).get("auth") === "google";
+}
+
+
 // =====================================================
 //              SHOW / HIDE PASSWORD
 // =====================================================
@@ -332,6 +365,9 @@ if (googleLoginBtn) {
                     window.location.pathname +
                     window.location.search;
 
+                const callbackUrl = new URL(redirectUrl);
+                callbackUrl.searchParams.set("auth", "google");
+
 
                 console.log(
                     "Google Redirect URL:",
@@ -353,7 +389,7 @@ if (googleLoginBtn) {
                             options: {
 
                                 redirectTo:
-                                    redirectUrl
+                                    callbackUrl.toString()
 
                             }
 
@@ -565,8 +601,12 @@ async function checkSession() {
                     )
             ) {
 
-                window.location.href =
-                    getPostLoginRedirect();
+            if (!isGoogleCallback()) return;
+
+            handleOAuthSignIn(session).catch(error => {
+                    console.error("OAuth session validation error:", error);
+                    showLoginMessage("تعذر التحقق من صلاحية الحساب.");
+                });
 
             }
 
