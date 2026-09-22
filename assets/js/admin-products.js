@@ -28,7 +28,7 @@ async function initializeAdminProducts() {
         } = await window.supabaseClient.auth.getUser();
 
         if (userError || !userData?.user) {
-            showAdminProductsAccessDenied("المرجو تسجيل الدخول أولًا.");
+            redirectAdminProductsToLogin();
             return;
         }
 
@@ -839,6 +839,17 @@ function showAdminProductsAccessDenied(message) {
             <p>${escapeAdminProductHTML(message)}</p>
         </div>
     `;
+
+}
+
+
+function redirectAdminProductsToLogin() {
+
+    const currentPage = window.location.pathname.split("/").pop() || "admin-products.html";
+    const redirectTarget = `${currentPage}${window.location.search}${window.location.hash}`;
+    const loginUrl = `login.html?redirect=${encodeURIComponent(redirectTarget)}`;
+
+    window.location.replace(loginUrl);
 
 }
 

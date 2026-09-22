@@ -53,6 +53,19 @@ function showLoginMessage(
 }
 
 
+function getPostLoginRedirect() {
+
+    const requestedRedirect = new URLSearchParams(window.location.search).get("redirect");
+
+    if (!requestedRedirect || requestedRedirect.startsWith("//") || requestedRedirect.includes("://")) {
+        return "account.html";
+    }
+
+    return requestedRedirect.startsWith("/") ? requestedRedirect.slice(1) : requestedRedirect;
+
+}
+
+
 // =====================================================
 //              SHOW / HIDE PASSWORD
 // =====================================================
@@ -203,7 +216,7 @@ if (loginForm) {
                     () => {
 
                         window.location.href =
-                            "index.html";
+                            getPostLoginRedirect();
 
                     },
                     700
@@ -316,7 +329,8 @@ if (googleLoginBtn) {
 
                 const redirectUrl =
                     window.location.origin +
-                    "/login.html";
+                    window.location.pathname +
+                    window.location.search;
 
 
                 console.log(
@@ -552,7 +566,7 @@ async function checkSession() {
             ) {
 
                 window.location.href =
-                    "account.html";
+                    getPostLoginRedirect();
 
             }
 
