@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Order Confirmed | SEFROU STORE</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <!-- ================= Header ================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+
+                <h1>
+                    <a href="index.html">SEFROU STORE</a>
+                </h1>
+
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">الرئيسية</a>
+                </li>
+
+                <li>
+                    <a href="products.html">المنتجات</a>
+                </li>
+
+                <li>
+                    <a href="#">العروض</a>
+                </li>
+
+                <li>
+                    <a href="#">من نحن</a>
+                </li>
+
+                <li>
+                    <a href="#">اتصل بنا</a>
+                </li>
+
+            </ul>
+
+            <div class="nav-actions">
+
+                <button class="icon-btn" id="searchBtn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <a href="wishlist.html" class="icon-btn">
+                    <i class="fa-regular fa-heart"></i>
+                </a>
+
+                <a href="cart.html" class="cart-icon">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span id="cartCounter">0</span>
+
+                </a>
+
+               <a href="login.html" class="login-btn">
+    تسجيل الدخول
+</a>
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= Order Success ================= -->
+
+    <main>
+
+        <section class="order-success-section">
+
+            <div class="order-success-card">
+
+                <div class="success-icon">
+
+                    <i class="fa-solid fa-check"></i>
+
+                </div>
+
+                <h1>
+                    تم تأكيد طلبك بنجاح!
+                </h1>
+
+                <p>
+                    شكراً لك على ثقتك في SEFROU STORE.
+                </p>
+
+                <p>
+                    سنتواصل معك قريباً لتأكيد تفاصيل التوصيل.
+                </p>
+<div class="order-summary-success">
+
+    <div class="success-info-item">
+
+        <span>
+            <i class="fa-solid fa-hashtag"></i>
+            رقم الطلب
+        </span>
+
+        <strong id="successOrderNumber">
+            #SF-000000
+        </strong>
+
+    </div>
+
+
+    <div class="success-info-item">
+
+        <span>
+            <i class="fa-solid fa-box"></i>
+            عدد المنتجات
+        </span>
+
+        <strong id="successProductCount">
+            0
+        </strong>
+
+    </div>
+
+
+    <div class="success-info-item">
+
+        <span>
+            <i class="fa-solid fa-money-bill"></i>
+            إجمالي الطلب
+        </span>
+
+        <strong id="successOrderTotal">
+            0.00 DH
+        </strong>
+
+    </div>
+
+
+    <div class="success-info-item">
+
+        <span>
+            <i class="fa-regular fa-calendar"></i>
+            تاريخ الطلب
+        </span>
+
+        <strong id="successOrderDate">
+            --
+        </strong>
+
+    </div>
+
+</div>
+
+                <div class="order-success-actions">
+
+                    <a href="products.html" class="success-btn">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        مواصلة التسوق
+                    </a>
+
+                    <a href="index.html" class="success-btn secondary">
+                        <i class="fa-solid fa-house"></i>
+                        العودة للرئيسية
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= Footer ================= -->
+
+    <footer>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 SEFROU STORE. جميع الحقوق محفوظة.
+            </p>
+
+        </div>
+
+    </footer>
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="assets/js/supabase.js"></script>
+
+<script src="assets/js/products.js"></script>
+
+<script src="assets/js/auth.js"></script>
+
+<script src="assets/js/script.js"></script>
+
+</body>
+
+</html>

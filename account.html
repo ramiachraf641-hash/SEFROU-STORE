@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>حسابي | SEFROU STORE</title>
+    <meta
+        name="description"
+        content="إدارة حسابك وبياناتك وطلباتك في متجر صفرو.">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="assets/css/style.css">
+
+</head>
+
+<body>
+
+
+<!-- ================= Header ================= -->
+
+<header>
+
+    <nav class="navbar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <h1>
+
+                <a href="index.html">
+                    SEFROU STORE
+                </a>
+
+            </h1>
+
+        </div>
+
+
+        <!-- NAV LINKS -->
+
+        <ul class="nav-links">
+
+            <li>
+
+                <a href="index.html">
+                    الرئيسية
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="products.html">
+                    المنتجات
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="#">
+                    العروض
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="#">
+                    من نحن
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="#">
+                    اتصل بنا
+                </a>
+
+            </li>
+
+        </ul>
+
+
+        <!-- NAV ACTIONS -->
+
+        <div class="nav-actions">
+
+
+            <!-- Search -->
+
+            <button
+                class="icon-btn"
+                id="searchBtn"
+                type="button"
+                aria-label="البحث"
+            >
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </button>
+
+
+            <!-- Wishlist -->
+
+            <a
+                href="wishlist.html"
+                class="icon-btn"
+                aria-label="المفضلة"
+            >
+
+                <i class="fa-regular fa-heart"></i>
+
+            </a>
+
+
+            <!-- Cart -->
+
+            <a
+                href="cart.html"
+                class="cart-icon"
+                id="cartIcon"
+                aria-label="السلة"
+            >
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span id="cartCounter">
+                    0
+                </span>
+
+            </a>
+
+
+            <!-- My Orders -->
+
+            <a
+                href="my-orders.html"
+                class="orders-header-btn"
+                aria-label="طلباتي"
+            >
+
+                <i class="fa-solid fa-box"></i>
+
+                <span>
+                    طلباتي
+                </span>
+
+            </a>
+
+
+            <!-- Account -->
+
+            <a
+                href="account.html"
+                class="login-btn"
+            >
+
+                حسابي
+
+            </a>
+
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ================= Search Modal ================= -->
+
+<div
+    id="searchModal"
+    class="search-modal"
+>
+
+    <div class="search-box">
+
+
+        <div class="search-header">
+
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="ابحث عن منتج..."
+                autocomplete="off"
+            >
+
+
+            <button
+                id="closeSearch"
+                class="close-search"
+                type="button"
+                aria-label="إغلاق البحث"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+        </div>
+
+
+        <div
+            id="searchResults"
+            class="search-results"
+        ></div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= Account ================= -->
+
+<main class="account-page">
+
+
+    <div class="account-container">
+
+
+        <div class="account-card">
+
+
+            <!-- Profile Icon -->
+
+            <div class="account-icon">
+
+                <i class="fa-solid fa-user"></i>
+
+            </div>
+
+
+            <h1>
+                حسابي
+            </h1>
+
+
+            <p class="account-welcome">
+
+                مرحباً بك في حسابك داخل SEFROU STORE
+
+            </p>
+
+
+
+            <!-- ================= User Information ================= -->
+
+            <div class="account-info">
+
+
+                <!-- Full Name -->
+
+                <div class="account-info-row">
+
+                    <div class="account-info-icon">
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </div>
+
+
+                    <div class="account-info-content">
+
+                        <span>
+                            الاسم الكامل
+                        </span>
+
+
+                        <strong id="accountName">
+                            -
+                        </strong>
+
+
+                        <button
+                            type="button"
+                            id="editNameBtn"
+                            class="account-edit-btn"
+                        >
+
+                            <i class="fa-solid fa-pen"></i>
+
+                            تعديل الاسم
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Name Edit Box -->
+
+                <div
+                    id="nameEditBox"
+                    class="name-edit-box"
+                    hidden
+                >
+
+                    <label for="nameInput">
+                        الاسم الكامل
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="nameInput"
+                        placeholder="أدخل اسمك الكامل"
+                        autocomplete="name"
+                        maxlength="100"
+                    >
+
+
+                    <div class="name-edit-actions">
+
+                        <button
+                            type="button"
+                            id="saveNameBtn"
+                        >
+
+                            <i class="fa-solid fa-check"></i>
+
+                            حفظ الاسم
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="cancelNameBtn"
+                        >
+
+                            إلغاء
+
+                        </button>
+
+                    </div>
+
+
+                    <p
+                        id="nameMessage"
+                        class="name-message"
+                    ></p>
+
+                </div>
+
+
+
+                <!-- Email -->
+
+                <div class="account-info-row">
+
+                    <div class="account-info-icon">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                    </div>
+
+
+                    <div class="account-info-content">
+
+                        <span>
+                            البريد الإلكتروني
+                        </span>
+
+
+                        <strong id="accountEmail">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Phone -->
+
+                <div class="account-info-row">
+
+                    <div class="account-info-icon">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                    </div>
+
+
+                    <div class="account-info-content">
+
+                        <span>
+                            رقم الهاتف
+                        </span>
+
+
+                        <strong id="accountPhone">
+                            غير مضاف
+                        </strong>
+
+
+                        <button
+                            type="button"
+                            id="editPhoneBtn"
+                            class="account-edit-btn"
+                        >
+
+                            <i class="fa-solid fa-plus"></i>
+
+                            إضافة رقم
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Phone Edit Box -->
+
+                <div
+                    id="phoneEditBox"
+                    class="phone-edit-box"
+                    hidden
+                >
+
+                    <label for="phoneInput">
+                        رقم الهاتف
+                    </label>
+
+
+                    <input
+                        type="tel"
+                        id="phoneInput"
+                        placeholder="+212 6 XX XX XX XX"
+                        autocomplete="tel"
+                        maxlength="20"
+                    >
+
+
+                    <div class="phone-edit-actions">
+
+                        <button
+                            type="button"
+                            id="savePhoneBtn"
+                        >
+
+                            <i class="fa-solid fa-check"></i>
+
+                            حفظ الرقم
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="cancelPhoneBtn"
+                        >
+
+                            إلغاء
+
+                        </button>
+
+                    </div>
+
+
+                    <p
+                        id="phoneMessage"
+                        class="phone-message"
+                    ></p>
+
+                </div>
+
+
+
+                <!-- Account Creation Date -->
+
+                <div class="account-info-row">
+
+                    <div class="account-info-icon">
+
+                        <i class="fa-solid fa-calendar-days"></i>
+
+                    </div>
+
+
+                    <div class="account-info-content">
+
+                        <span>
+                            تاريخ إنشاء الحساب
+                        </span>
+
+
+                        <strong id="accountCreatedAt">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Email Status -->
+
+                <div class="account-info-row">
+
+                    <div class="account-info-icon">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                    </div>
+
+
+                    <div class="account-info-content">
+
+                        <span>
+                            حالة البريد الإلكتروني
+                        </span>
+
+
+                        <strong
+                            id="accountEmailStatus"
+                            class="account-status"
+                        >
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Account Status -->
+
+                <div class="account-info-row">
+
+                    <div class="account-info-icon">
+
+                        <i class="fa-solid fa-user-check"></i>
+
+                    </div>
+
+
+                    <div class="account-info-content">
+
+                        <span>
+                            حالة الحساب
+                        </span>
+
+
+                        <strong class="account-status">
+                            متصل
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ================= Change Password ================= -->
+
+            <div class="account-security-section">
+
+
+                <div class="security-section-header">
+
+
+                    <div class="security-icon">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            تغيير كلمة المرور
+                        </h3>
+
+                        <p>
+                            حدّث كلمة المرور ديال حسابك بشكل آمن
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="changePasswordBtn"
+                    class="security-action-btn"
+                >
+
+                    <i class="fa-solid fa-key"></i>
+
+                    تغيير كلمة المرور
+
+                </button>
+
+
+
+                <!-- Change Password Box -->
+
+                <div
+                    id="passwordEditBox"
+                    class="password-edit-box"
+                    hidden
+                >
+
+
+                    <!-- New Password -->
+
+                    <div class="password-form-group">
+
+                        <label for="newPassword">
+                            كلمة المرور الجديدة
+                        </label>
+
+
+                        <div class="password-input-box">
+
+                            <input
+                                type="password"
+                                id="newPassword"
+                                placeholder="أدخل كلمة المرور الجديدة"
+                                autocomplete="new-password"
+                                minlength="6"
+                            >
+
+
+                            <button
+                                type="button"
+                                id="toggleNewPassword"
+                                class="password-toggle"
+                                aria-label="إظهار كلمة المرور"
+                            >
+
+                                <i class="fa-solid fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Confirm Password -->
+
+                    <div class="password-form-group">
+
+                        <label for="confirmNewPassword">
+                            تأكيد كلمة المرور الجديدة
+                        </label>
+
+
+                        <div class="password-input-box">
+
+                            <input
+                                type="password"
+                                id="confirmNewPassword"
+                                placeholder="أعد إدخال كلمة المرور"
+                                autocomplete="new-password"
+                                minlength="6"
+                            >
+
+
+                            <button
+                                type="button"
+                                id="toggleConfirmNewPassword"
+                                class="password-toggle"
+                                aria-label="إظهار كلمة المرور"
+                            >
+
+                                <i class="fa-solid fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Password Requirements -->
+
+                    <div class="password-requirements">
+
+                        <span>
+
+                            <i class="fa-solid fa-circle-info"></i>
+
+                            كلمة المرور خاصها تكون على الأقل 6 أحرف.
+
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- Actions -->
+
+                    <div class="password-edit-actions">
+
+                        <button
+                            type="button"
+                            id="savePasswordBtn"
+                        >
+
+                            <i class="fa-solid fa-check"></i>
+
+                            حفظ كلمة المرور
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="cancelPasswordBtn"
+                        >
+
+                            إلغاء
+
+                        </button>
+
+                    </div>
+
+
+                    <p
+                        id="passwordMessage"
+                        class="password-message"
+                    ></p>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= Email Verification ================= -->
+
+            <div class="account-security-section">
+
+
+                <div class="security-section-header">
+
+
+                    <div class="security-icon">
+
+                        <i class="fa-solid fa-envelope-circle-check"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            تأكيد البريد الإلكتروني
+                        </h3>
+
+                        <p>
+                            تأكد من بريدك الإلكتروني لحماية حسابك بشكل أفضل
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="email-verification-status">
+
+                    <span id="emailVerificationText">
+
+                        جاري التحقق من حالة البريد الإلكتروني...
+
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="resendVerificationBtn"
+                    class="security-action-btn"
+                    hidden
+                >
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                    إعادة إرسال كود التحقق
+
+                </button>
+
+
+                <p
+                    id="verificationMessage"
+                    class="verification-message"
+                ></p>
+
+
+            </div>
+
+
+
+            <!-- ================= My Orders ================= -->
+
+            <div class="account-security-section">
+
+                <div class="security-section-header">
+
+                    <div class="security-icon">
+
+                        <i class="fa-solid fa-box"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            طلباتي
+                        </h3>
+
+                        <p>
+                            جميع الطلبات التي قمت بها من المتجر
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div id="myOrders">
+
+                    <!-- الطلبات غادي يتحطو هنا من JavaScript -->
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= Account Actions ================= -->
+
+            <div class="account-actions">
+
+
+                <a
+                    href="index.html"
+                    class="account-back-btn"
+                >
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                    العودة للمتجر
+
+                </a>
+
+
+                <button
+                    type="button"
+                    id="logoutBtn"
+                    class="logout-btn"
+                >
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    تسجيل الخروج
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- ================= Footer ================= -->
+
+<footer class="main-footer">
+
+
+    <div class="footer-container">
+
+
+        <div class="footer-col">
+
+            <h2 class="footer-logo">
+                SEFROU STORE
+            </h2>
+
+            <p>
+                Your trusted destination for premium products at unbeatable prices.
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-col">
+
+            <h3>
+                Quick Links
+            </h3>
+
+
+            <ul>
+
+                <li>
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="products.html">
+                        Products
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#">
+                        About
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#">
+                        Contact
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="footer-col">
+
+            <h3>
+                Contact
+            </h3>
+
+
+            <ul class="footer-contact">
+
+
+                <li>
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Sefrou, Fes-Meknes, Morocco
+
+                </li>
+
+
+                <li>
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    +212 7 64 22 11 04
+
+                </li>
+
+
+                <li>
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    contact@sefroustore.com
+
+                </li>
+
+
+            </ul>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 SEFROU STORE.
+            جميع الحقوق محفوظة.
+
+        </p>
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- ================= JavaScript ================= -->
+
+<!-- SUPABASE LIBRARY -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- SUPABASE CLIENT -->
+<script src="assets/js/supabase.js"></script>
+
+<!-- PRODUCTS -->
+<script src="assets/js/products.js"></script>
+
+<!-- GLOBAL STORE / CART -->
+<script src="assets/js/script.js"></script>
+
+<!-- AUTHENTICATION -->
+<script src="assets/js/auth.js"></script>
+
+<!-- SEARCH -->
+<script src="assets/js/search.js"></script>
+
+<!-- ACCOUNT -->
+<script src="assets/js/account.js"></script>
+
+
+</body>
+
+</html>

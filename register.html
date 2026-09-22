@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>إنشاء حساب | SEFROU STORE</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= REGISTER PAGE ================= -->
+
+    <main class="register-page">
+
+        <div class="register-container">
+
+            <div class="register-card">
+
+
+                <!-- ================= ICON ================= -->
+
+                <div class="register-icon">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                </div>
+
+
+                <!-- ================= HEADER ================= -->
+
+                <h1>
+                    إنشاء حساب
+                </h1>
+
+                <p class="register-welcome">
+                    أنشئ حسابك الآن في SEFROU STORE
+                </p>
+
+
+                <!-- ================= REGISTER FORM ================= -->
+
+                <form id="registerForm">
+
+
+                    <!-- NAME -->
+
+                    <div class="register-form-group">
+
+                        <label for="registerName">
+                            الاسم الكامل
+                        </label>
+
+                        <div class="register-input-box">
+
+                            <i class="fa-solid fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="registerName"
+                                placeholder="أدخل اسمك الكامل"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="register-form-group">
+
+                        <label for="registerEmail">
+                            البريد الإلكتروني
+                        </label>
+
+                        <div class="register-input-box">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="registerEmail"
+                                placeholder="example@email.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="register-form-group">
+
+                        <label for="registerPassword">
+                            كلمة المرور
+                        </label>
+
+                        <div class="register-input-box">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="registerPassword"
+                                placeholder="أدخل كلمة المرور"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="toggleRegisterPassword"
+                                class="register-password-toggle"
+                                aria-label="إظهار كلمة المرور"
+                            >
+
+                                <i class="fa-solid fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONFIRM PASSWORD -->
+
+                    <div class="register-form-group">
+
+                        <label for="registerConfirmPassword">
+                            تأكيد كلمة المرور
+                        </label>
+
+                        <div class="register-input-box">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="registerConfirmPassword"
+                                placeholder="أعد إدخال كلمة المرور"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="toggleConfirmPassword"
+                                class="register-password-toggle"
+                                aria-label="إظهار كلمة المرور"
+                            >
+
+                                <i class="fa-solid fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MESSAGE -->
+
+                    <p
+                        id="registerMessage"
+                        class="register-message"
+                    ></p>
+
+
+                    <!-- SUBMIT -->
+
+                    <button
+                        type="submit"
+                        class="register-submit"
+                    >
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                        إنشاء الحساب
+
+                    </button>
+
+
+                    <!-- FOOTER -->
+
+                    <div class="register-footer">
+
+                        <span>
+                            عندك حساب من قبل؟
+                        </span>
+
+                        <a href="login.html">
+                            تسجيل الدخول
+                        </a>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="assets/js/supabase.js"></script>
+
+<script src="assets/js/register.js"></script>
+
+</body>
+
+</html>

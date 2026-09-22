@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة التقييمات | SEFROU STORE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <main class="admin-reviews-page">
+        <nav class="admin-reviews-nav" aria-label="روابط الإدارة">
+            <a href="admin-orders.html"><i class="fa-solid fa-receipt"></i> الطلبات</a>
+            <a href="admin-products.html"><i class="fa-solid fa-box"></i> المنتجات</a>
+            <a href="admin-reviews.html" class="active"><i class="fa-solid fa-star"></i> التقييمات</a>
+            <a href="admin-newsletter.html"><i class="fa-solid fa-envelope"></i> النشرة البريدية</a>
+        </nav>
+
+        <header class="admin-reviews-header">
+            <div>
+                <span class="admin-reviews-eyebrow">ADMIN DASHBOARD</span>
+                <h1>إدارة تقييمات المنتجات</h1>
+                <p>راجع آراء الزبناء ونظّم التقييمات الحقيقية قبل نشرها.</p>
+            </div>
+            <button type="button" id="adminReviewsRefresh" class="admin-reviews-refresh">
+                <i class="fa-solid fa-rotate"></i> تحديث التقييمات
+            </button>
+        </header>
+
+        <section class="admin-reviews-toolbar" aria-label="البحث وتصفية التقييمات">
+            <label class="admin-reviews-search-wrap">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input id="adminReviewsSearch" type="search" placeholder="ابحث باسم المنتج أو داخل التعليق..." autocomplete="off">
+            </label>
+            <select id="adminReviewsFilter" aria-label="تصفية حسب الحالة">
+                <option value="all">كل التقييمات</option>
+                <option value="pending">قيد المراجعة</option>
+                <option value="approved">مقبول</option>
+                <option value="rejected">مرفوض</option>
+            </select>
+        </section>
+
+        <section class="admin-reviews-stats" aria-label="إحصائيات التقييمات">
+            <div><span>كل التقييمات</span><strong id="adminReviewsTotal">0</strong></div>
+            <div><span>قيد المراجعة</span><strong id="adminReviewsPending">0</strong></div>
+            <div><span>مقبولة</span><strong id="adminReviewsApproved">0</strong></div>
+            <div><span>مرفوضة</span><strong id="adminReviewsRejected">0</strong></div>
+        </section>
+
+        <div id="adminReviewsFeedback" class="admin-reviews-feedback" role="status" aria-live="polite"></div>
+
+        <section class="admin-reviews-table-card">
+            <div class="admin-reviews-table-wrap">
+                <table class="admin-reviews-table">
+                    <thead>
+                        <tr>
+                            <th>المنتج</th>
+                            <th>التقييم</th>
+                            <th>التعليق</th>
+                            <th>العميل</th>
+                            <th>التاريخ</th>
+                            <th>الحالة</th>
+                            <th>الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminReviewsList">
+                        <tr><td colspan="7" class="admin-reviews-loading"><i class="fa-solid fa-spinner fa-spin"></i> جاري تحميل التقييمات...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase.js"></script>
+    <script src="assets/js/admin-reviews.js"></script>
+</body>
+</html>

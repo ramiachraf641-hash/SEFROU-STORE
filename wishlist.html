@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wishlist | SEFROU STORE</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+  <!-- ================= Header ================= -->
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <h1>
+                <a href="index.html">SEFROU STORE</a>
+            </h1>
+
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="index.html">الرئيسية</a></li>
+
+            <li><a href="products.html">المنتجات</a></li>
+
+            <li><a href="#">العروض</a></li>
+
+            <li><a href="#">من نحن</a></li>
+
+            <li><a href="#">اتصل بنا</a></li>
+
+        </ul>
+
+        <div class="nav-actions">
+
+            <button class="icon-btn" id="searchBtn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <a href="wishlist.html" class="icon-btn">
+                <i class="fa-solid fa-heart"></i>
+            </a>
+
+            <a href="cart.html" class="cart-icon" id="cartIcon">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span id="cartCounter">0</span>
+
+            </a>
+<a href="login.html" class="login-btn">
+    تسجيل الدخول
+</a>
+
+        </div>
+
+    </nav>
+
+</header>
+<!-- ================= SEARCH MODAL ================= -->
+
+<div id="searchModal" class="search-modal">
+
+    <div class="search-box">
+
+        <div class="search-header">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products...">
+
+            <button id="closeSearch" class="close-search">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div id="searchResults" class="search-results">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= page Banner ================= -->
+
+<section class="page-banner">
+
+    <div class="page-banner-content">
+
+        <div class="breadcrumb">
+
+            <a href="index.html">الرئيسية</a>
+
+            <span>/</span>
+
+            <span>المفضلة</span>
+
+        </div>
+
+        <h1>المفضلة</h1>
+
+        <p>
+            جميع المنتجات التي قمت بحفظها ستظهر هنا.
+        </p>
+
+    </div>
+
+</section>
+<!-- ================= Wishlist ================= -->
+
+<section class="wishlist-section">
+
+    <div class="wishlist-container" id="wishlistContainer">
+
+        <!-- سيتم عرض المنتجات هنا تلقائياً -->
+
+    </div>
+
+</section>
+<!-- ================= Footer ================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <!-- Column 1: About -->
+        <div class="footer-col">
+            <h2 class="footer-logo">SEFROU Store</h2>
+            <p>
+                Your trusted destination for premium products at unbeatable prices.
+                Quality, speed, and customer satisfaction guaranteed.
+            </p>
+
+            <div class="footer-socials">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Customer Service -->
+        <div class="footer-col">
+            <h3>Customer Service</h3>
+            <ul>
+                <li><a href="#">My Account</a></li>
+                <li><a href="cart.html">Track Order</a></li>
+                <li><a href="wishlist.html">Wishlist</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms &amp; Conditions</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 4: Contact Info -->
+        <div class="footer-col">
+            <h3>Contact Us</h3>
+            <ul class="footer-contact">
+                <li>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Sefrou, Fes-Meknes, Morocco
+                </li>
+                <li>
+                    <i class="fa-solid fa-phone"></i>
+                    +212 7 64 22 11 04
+                </li>
+                <li>
+                    <i class="fa-solid fa-envelope"></i>
+                    contact@sefroustore.com
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer-payment">
+        <i class="fa-brands fa-cc-visa"></i>
+        <i class="fa-brands fa-cc-mastercard"></i>
+        <i class="fa-brands fa-cc-paypal"></i>
+        <i class="fa-brands fa-cc-stripe"></i>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 SEFROU Store. جميع الحقوق محفوظة.</p>
+    </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="assets/js/supabase.js"></script>
+
+<script src="assets/js/products.js"></script>
+
+<script src="assets/js/script.js"></script>
+
+<script src="assets/js/search.js"></script>
+
+<script src="assets/js/auth.js"></script>
+</body>
+</html>

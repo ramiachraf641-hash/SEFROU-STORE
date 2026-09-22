@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>تفاصيل المنتج | SEFROU STORE</title>
+    <meta
+        name="description"
+        content="تعرف على تفاصيل المنتج والصور والسعر والمخزون قبل إضافته إلى السلة.">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+   <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- ================= Header ================= -->
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <h1>
+                <a href="index.html">SEFROU STORE</a>
+            </h1>
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="index.html">الرئيسية</a></li>
+
+            <li><a href="products.html">المنتجات</a></li>
+
+            <li><a href="#">العروض</a></li>
+
+            <li><a href="#">من نحن</a></li>
+
+            <li><a href="#">اتصل بنا</a></li>
+
+        </ul>
+
+        
+
+           <div class="nav-actions">
+
+    <button class="icon-btn" id="searchBtn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+
+    <a href="wishlist.html" class="icon-btn">
+        <i class="fa-regular fa-heart"></i>
+    </a>
+
+    <a href="cart.html" class="cart-icon" id="cartIcon">
+
+    <i class="fa-solid fa-cart-shopping"></i>
+
+    <span id="cartCounter">0</span>
+
+</a>
+
+  <a href="login.html" class="login-btn">
+    تسجيل الدخول
+</a>
+
+</div>
+
+    </nav>
+
+</header>
+<!-- ================= SEARCH MODAL ================= -->
+
+<div id="searchModal" class="search-modal">
+
+    <div class="search-box">
+
+        <div class="search-header">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products...">
+
+            <button id="closeSearch" class="close-search">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div id="searchResults" class="search-results">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= Product Banner ================= -->
+
+<section class="page-banner">
+
+    <div class="page-banner-content">
+
+        <div class="breadcrumb">
+
+            <a href="index.html">الرئيسية</a>
+
+            <span>/</span>
+
+            <a href="products.html">المنتجات</a>
+
+            <span>/</span>
+
+            <span>تفاصيل المنتج</span>
+
+        </div>
+
+        <h1>تفاصيل المنتج</h1>
+
+        <p>
+            تعرف على جميع مواصفات المنتج قبل إضافته إلى السلة.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= Product Details ================= -->
+
+<section class="product-details">
+
+    <div class="product-details-container">
+
+        <!-- الصور -->
+
+        <div class="product-gallery">
+
+            <img
+                id="productImage"
+                class="main-image"
+                src=""
+                alt=""
+                hidden>
+
+            <div
+                class="thumbnail-images"
+                id="thumbnailImages"
+                aria-label="صور المنتج">
+            </div>
+
+        </div>
+
+        <!-- المعلومات -->
+
+        <div class="product-details-info">
+
+            <div
+                id="productDetailsState"
+                class="product-details-state"
+                role="status">
+                جاري تحميل المنتج...
+            </div>
+
+            <span
+                id="productBadge"
+                class="product-badge"
+                hidden>
+            </span>
+
+            <span id="productCategory" class="product-category">
+            </span>
+
+            <h2 id="productName">
+            </h2>
+
+            <div id="productRating" class="product-rating">
+                <span></span>
+            </div>
+
+            <div class="product-price">
+                <span id="oldPrice" class="old-price"></span>
+                <span id="newPrice" class="new-price"></span>
+                <span id="productDiscount" class="discount" hidden></span>
+            </div>
+
+            <p id="productDescription" class="product-description">
+            </p>
+
+            <div
+                id="productStock"
+                class="stock"
+                aria-live="polite">
+            </div>
+
+            <div class="quantity-box">
+                                <label for="quantity">الكمية</label>
+                                <input
+                                        id="quantity"
+                                        type="number"
+                                        value="1"
+                                        min="1"
+                                        step="1"
+                                        inputmode="numeric">
+            </div>
+
+            <div class="details-buttons">
+                <button
+                    id="addToCartBtn"
+                    type="button"
+                    class="cart-btn"
+                    aria-label="إضافة المنتج إلى السلة">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Add to Cart
+                </button>
+                <button
+                    id="buyNowBtn"
+                    type="button"
+                    class="buy-now-btn">
+                    اشتر الآن
+                </button>
+                <button
+                    id="wishlistBtn"
+                    type="button"
+                    class="wishlist-btn"
+                    aria-label="إضافة المنتج إلى المفضلة">
+    <i class="fa-regular fa-heart"></i>
+</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= Customer Reviews ================= -->
+
+<section class="product-reviews" id="productReviewsSection">
+
+    <div class="product-reviews-container">
+
+        <div class="section-title product-reviews-heading">
+            <span>REVIEWS</span>
+            <h2>تقييمات العملاء</h2>
+            <p>آراء حقيقية من العملاء الذين اشتروا هذا المنتج.</p>
+        </div>
+
+        <div class="reviews-summary" id="reviewsSummary" aria-live="polite">
+            <div class="reviews-summary-stars" id="reviewsAverageStars" aria-label="متوسط التقييم">—</div>
+            <div class="reviews-summary-score" id="reviewsAverageScore">لا توجد تقييمات بعد</div>
+            <div class="reviews-summary-count" id="reviewsCount">0 تقييم</div>
+        </div>
+
+        <div class="review-form-state" id="reviewFormState" role="status"></div>
+
+        <form class="product-review-form" id="productReviewForm" hidden>
+            <div class="review-form-heading">
+                <h3>شاركنا رأيك</h3>
+                <p>قيّم المنتج بعد توصّل طلبك.</p>
+            </div>
+
+            <fieldset class="review-rating-fieldset">
+                <legend>التقييم</legend>
+                <div class="review-star-picker" id="reviewStarPicker" role="radiogroup" aria-label="اختر تقييمك من نجمة إلى خمس نجوم">
+                    <button type="button" class="review-star-button" data-review-rating="1" role="radio" aria-label="نجمة واحدة" aria-checked="false">★</button>
+                    <button type="button" class="review-star-button" data-review-rating="2" role="radio" aria-label="نجمتان" aria-checked="false">★</button>
+                    <button type="button" class="review-star-button" data-review-rating="3" role="radio" aria-label="ثلاث نجوم" aria-checked="false">★</button>
+                    <button type="button" class="review-star-button" data-review-rating="4" role="radio" aria-label="أربع نجوم" aria-checked="false">★</button>
+                    <button type="button" class="review-star-button" data-review-rating="5" role="radio" aria-label="خمس نجوم" aria-checked="false">★</button>
+                </div>
+            </fieldset>
+
+            <label class="review-comment-label" for="productReviewComment">تعليقك</label>
+            <textarea id="productReviewComment" rows="5" maxlength="2000" placeholder="كتب لنا تجربتك مع هذا المنتج..." required></textarea>
+
+            <button type="submit" class="review-submit-button" id="productReviewSubmit">
+                إرسال التقييم
+            </button>
+            <p class="product-review-message" id="productReviewMessage" role="alert" aria-live="polite"></p>
+        </form>
+
+        <div class="product-reviews-list" id="productReviewsList" aria-live="polite">
+            <p class="reviews-loading">جاري تحميل التقييمات...</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="related-products featured-products">
+    <div class="section-title">
+        <span>اختيارات مشابهة</span>
+        <h2>منتجات مرتبطة</h2>
+    </div>
+    <div
+        id="relatedProductsContainer"
+        class="products-container">
+    </div>
+</section>
+
+<!-- ================= Footer ================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <!-- Column 1: About -->
+        <div class="footer-col">
+            <h2 class="footer-logo">SEFROU Store</h2>
+            <p>
+                Your trusted destination for premium products at unbeatable prices.
+                Quality, speed, and customer satisfaction guaranteed.
+            </p>
+
+            <div class="footer-socials">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Customer Service -->
+        <div class="footer-col">
+            <h3>Customer Service</h3>
+            <ul>
+                <li><a href="#">My Account</a></li>
+                <li><a href="#">Track Order</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms &amp; Conditions</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 4: Contact Info -->
+        <div class="footer-col">
+            <h3>Contact Us</h3>
+            <ul class="footer-contact">
+                <li>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Sefrou, Fes-Meknes, Morocco
+                </li>
+                <li>
+                    <i class="fa-solid fa-phone"></i>
+                    +212 7 64 22 11 04
+                </li>
+                <li>
+                    <i class="fa-solid fa-envelope"></i>
+                    contact@sefroustore.com
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer-payment">
+        <i class="fa-brands fa-cc-visa"></i>
+        <i class="fa-brands fa-cc-mastercard"></i>
+        <i class="fa-brands fa-cc-paypal"></i>
+        <i class="fa-brands fa-cc-stripe"></i>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 SEFROU Store. جميع الحقوق محفوظة.</p>
+    </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="assets/js/supabase.js"></script>
+
+<script src="assets/js/products.js"></script>
+
+<script src="assets/js/auth.js"></script>
+
+<script src="assets/js/script.js"></script>
+
+<script src="assets/js/search.js"></script>
+
+</body>
+
+</html>

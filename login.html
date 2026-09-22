@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>تسجيل الدخول | SEFROU STORE</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css">
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+                         HEADER
+===================================================== -->
+
+<header>
+
+    <nav class="navbar">
+
+        <!-- Logo -->
+
+        <div class="logo">
+
+            <h1>
+
+                <a href="index.html">
+                    SEFROU STORE
+                </a>
+
+            </h1>
+
+        </div>
+
+
+        <!-- Navigation -->
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    الرئيسية
+                </a>
+            </li>
+
+            <li>
+                <a href="products.html">
+                    المنتجات
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    العروض
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    من نحن
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    اتصل بنا
+                </a>
+            </li>
+
+        </ul>
+
+
+        <!-- Navigation Actions -->
+
+        <div class="nav-actions">
+
+
+            <!-- Search -->
+
+            <button
+                type="button"
+                class="icon-btn"
+                id="searchBtn"
+                aria-label="البحث">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </button>
+
+
+            <!-- Wishlist -->
+
+            <a
+                href="wishlist.html"
+                class="icon-btn"
+                aria-label="المفضلة">
+
+                <i class="fa-regular fa-heart"></i>
+
+            </a>
+
+
+            <!-- Cart -->
+
+            <a
+                href="cart.html"
+                class="cart-icon"
+                id="cartIcon"
+                aria-label="السلة">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span id="cartCounter">
+                    0
+                </span>
+
+            </a>
+
+
+            <!-- Login / Account -->
+
+            <a
+                href="login.html"
+                class="login-btn">
+
+                تسجيل الدخول
+
+            </a>
+
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+                       SEARCH MODAL
+===================================================== -->
+
+<div
+    id="searchModal"
+    class="search-modal">
+
+    <div class="search-box">
+
+
+        <div class="search-header">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="ابحث عن منتج..."
+            >
+
+
+            <button
+                type="button"
+                id="closeSearch"
+                class="close-search">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="searchResults"
+            class="search-results">
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+                         LOGIN
+===================================================== -->
+
+<main class="login-page">
+
+    <div class="login-container">
+
+        <div class="login-card">
+
+
+            <!-- Login Header -->
+
+            <div class="login-header">
+
+                <div class="login-icon">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+
+                <h2>
+                    تسجيل الدخول
+                </h2>
+
+
+                <p>
+                    مرحباً بك مجدداً في SEFROU STORE
+                </p>
+
+            </div>
+
+
+
+            <!-- Login Form -->
+
+            <form id="loginForm">
+
+
+                <!-- Email -->
+
+                <div class="form-group">
+
+                    <label for="loginEmail">
+
+                        البريد الإلكتروني
+
+                    </label>
+
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="example@email.com"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Password -->
+
+                <div class="form-group">
+
+                    <label for="loginPassword">
+
+                        كلمة المرور
+
+                    </label>
+
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="أدخل كلمة المرور"
+                            autocomplete="current-password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="password-toggle"
+                            aria-label="إظهار كلمة المرور">
+
+                            <i class="fa-solid fa-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Submit -->
+
+                <button
+                    type="submit"
+                    class="login-submit">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    تسجيل الدخول
+
+                </button>
+
+
+
+                <!-- Google Divider -->
+
+                <div class="login-divider">
+
+                    <span>
+                        أو
+                    </span>
+
+                </div>
+
+
+
+                <!-- Google Login -->
+
+                <button
+                    type="button"
+                    id="googleLoginBtn"
+                    class="google-login-btn">
+
+                    <i class="fa-brands fa-google"></i>
+
+                    تسجيل الدخول بواسطة Google
+
+                </button>
+
+
+
+                <!-- Login Message -->
+
+                <p
+                    id="loginMessage"
+                    class="login-message">
+                </p>
+
+
+
+                <!-- Register -->
+
+                <div class="login-footer">
+
+                    <span>
+                        ليس لديك حساب؟
+                    </span>
+
+
+                    <a
+                        href="register.html"
+                        id="registerLink">
+
+                        إنشاء حساب
+
+                    </a>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- =====================================================
+                         FOOTER
+===================================================== -->
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+
+        <!-- Footer About -->
+
+        <div class="footer-col">
+
+            <h2 class="footer-logo">
+                SEFROU STORE
+            </h2>
+
+
+            <p>
+                Your trusted destination for premium products at unbeatable prices.
+            </p>
+
+        </div>
+
+
+
+        <!-- Footer Links -->
+
+        <div class="footer-col">
+
+            <h3>
+                Quick Links
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html">
+                        Products
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- Footer Contact -->
+
+        <div class="footer-col">
+
+            <h3>
+                Contact
+            </h3>
+
+
+            <ul class="footer-contact">
+
+                <li>
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Sefrou, Fes-Meknes, Morocco
+
+                </li>
+
+
+                <li>
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    +212 7 64 22 11 04
+
+                </li>
+
+
+                <li>
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    contact@sefroustore.com
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- Footer Bottom -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 SEFROU STORE. جميع الحقوق محفوظة.
+        </p>
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+                     JAVASCRIPT
+===================================================== -->
+
+<!-- 1. Supabase Library -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<!-- 2. Supabase Client -->
+
+<script src="assets/js/supabase.js"></script>
+
+
+<!-- 3. Authentication -->
+
+<script src="assets/js/auth.js"></script>
+
+
+<!-- 4. Products -->
+
+<script src="assets/js/products.js"></script>
+
+
+<!-- 5. Search -->
+
+<script src="assets/js/search.js"></script>
+
+
+<!-- 6. Main Script -->
+
+<script src="assets/js/script.js"></script>
+
+
+</body>
+
+</html>

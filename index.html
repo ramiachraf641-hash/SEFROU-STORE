@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SEFROU STORE | متجر صفرو</title>
+    <meta
+        name="description"
+        content="تسوق منتجات مختارة بجودة عالية وأسعار مناسبة من SEFROU STORE.">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css"
+    >
+
+</head>
+
+<body class="home-page">
+
+
+<!-- =====================================================
+                         HEADER
+===================================================== -->
+
+<header>
+
+    <nav class="navbar">
+
+
+        <!-- ================= LOGO ================= -->
+
+        <div class="logo">
+
+            <h1>
+
+                <a href="index.html">
+                    SEFROU STORE
+                </a>
+
+            </h1>
+
+        </div>
+
+
+        <!-- ================= NAVIGATION ================= -->
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    الرئيسية
+                </a>
+            </li>
+
+            <li>
+                <a href="products.html">
+                    المنتجات
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    العروض
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    من نحن
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    اتصل بنا
+                </a>
+            </li>
+
+        </ul>
+
+
+        <!-- ================= NAV ACTIONS ================= -->
+
+<div class="nav-actions">
+
+    <!-- Search -->
+
+    <button
+        type="button"
+        class="icon-btn"
+        id="searchBtn"
+        aria-label="البحث">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+    </button>
+
+
+    <!-- Wishlist -->
+
+    <a
+        href="wishlist.html"
+        class="icon-btn"
+        aria-label="المفضلة">
+
+        <i class="fa-regular fa-heart"></i>
+
+    </a>
+
+
+    <!-- Cart -->
+
+    <a
+        href="cart.html"
+        class="cart-icon"
+        id="cartIcon"
+        aria-label="السلة">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <span id="cartCounter">
+            0
+        </span>
+
+    </a>
+
+
+    <!-- Login / Account -->
+
+    <a
+        href="login.html"
+        class="login-btn">
+
+        تسجيل الدخول
+
+    </a>
+
+</div>
+
+</nav>
+
+</header>
+
+
+<!-- =====================================================
+                       SEARCH MODAL
+===================================================== -->
+
+<div
+    id="searchModal"
+    class="search-modal">
+
+    <div class="search-box">
+
+
+        <div class="search-header">
+
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="ابحث عن منتج..."
+                autocomplete="off"
+            >
+
+
+            <button
+                type="button"
+                id="closeSearch"
+                class="close-search"
+                aria-label="إغلاق البحث">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="searchResults"
+            class="search-results">
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+                           HERO
+===================================================== -->
+
+<section id="hero" aria-live="polite">
+
+    <div class="hero-overlay">
+
+        <div
+            class="hero-content"
+            id="heroContent">
+
+
+            <h1 id="heroTitle">مرحبًا بك في SEFROU STORE</h1>
+
+
+            <p id="heroSubtitle">أفضل المنتجات بأفضل الأسعار وجودة عالمية.</p>
+
+
+            <div class="hero-buttons">
+
+
+                <button
+                    type="button"
+                    class="shop-btn"
+                    id="heroPrimaryButton">
+
+                    تسوق الآن
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="discover-btn"
+                    id="heroSecondaryButton">
+
+                    اكتشف المزيد
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCT SEARCH & FILTERS ================= -->
+
+<section class="products-toolbar home-products-toolbar home-top-toolbar" aria-label="فلاتر المنتجات">
+
+    <div class="toolbar-left">
+        <input
+            type="text"
+            id="productsSearchInput"
+            placeholder="ابحث عن منتج..."
+            aria-label="البحث في المنتجات">
+    </div>
+
+    <div class="toolbar-right">
+        <select id="categoryFilter" aria-label="التصفية حسب التصنيف">
+            <option value="جميع التصنيفات">جميع التصنيفات</option>
+        </select>
+
+        <select id="sortFilter" aria-label="ترتيب المنتجات">
+            <option>ترتيب حسب</option>
+            <option>الأحدث</option>
+            <option>السعر: الأقل أولاً</option>
+            <option>السعر: الأعلى أولاً</option>
+            <option>الأكثر مبيعًا</option>
+        </select>
+
+        <div class="price-filter" role="group" aria-label="فلترة حسب السعر">
+            <input id="minPriceFilter" type="number" min="0" step="0.01" inputmode="decimal" placeholder="أقل سعر" aria-label="أقل سعر">
+            <span>-</span>
+            <input id="maxPriceFilter" type="number" min="0" step="0.01" inputmode="decimal" placeholder="أعلى سعر" aria-label="أعلى سعر">
+        </div>
+
+        <span class="products-count"><span id="productsCount">جاري التحميل...</span></span>
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                       CATEGORIES
+===================================================== -->
+
+<section class="categories" id="categories">
+
+
+    <div class="section-title">
+
+        <span>
+            اكتشف
+        </span>
+
+        <h2>
+            تسوق حسب التصنيف
+        </h2>
+
+        <p>
+            اختار التصنيف المفضل عندك واكتشف منتجات مناسبة لاحتياجاتك.
+        </p>
+
+    </div>
+
+
+    <div
+        class="categories-container"
+        id="categoriesContainer"
+        aria-live="polite">
+
+        <div class="categories-loading">
+            جاري تحميل التصنيفات...
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                    FEATURED PRODUCTS
+===================================================== -->
+
+<section class="featured-products">
+
+
+    <div class="section-title">
+
+        <span>
+            FEATURED PRODUCTS
+        </span>
+
+        <h2>
+            مجموعتنا المميزة
+        </h2>
+
+        <p>
+            اكتشف منتجاتنا الأكثر شعبية، مختارة بعناية من أجلك.
+        </p>
+
+    </div>
+
+
+    <div
+        class="products-container"
+        id="productsContainer">
+
+        <!--
+            المنتجات كتزاد أوتوماتيكياً
+            بواسطة products.js / script.js
+        -->
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+                      SPECIAL OFFER
+===================================================== -->
+
+<section
+    class="special-offer"
+    id="offersSection"
+    aria-live="polite">
+
+
+    <div class="offer-content" id="offerContent">
+
+
+        <span class="offer-tag" id="offerTag">🔥 عرض محدود</span>
+
+
+        <h2 id="offerTitle">عروض مميزة</h2>
+
+
+        <p id="offerSubtitle">اكتشف أفضل العروض المتاحة حالياً.</p>
+
+
+        <div class="offer-countdown" id="offerCountdown" hidden></div>
+
+
+        <button
+            type="button"
+            class="offer-btn"
+            id="offerButton">
+
+            اكتشف العرض
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                        NEWSLETTER
+===================================================== -->
+
+<section class="newsletter">
+
+
+    <div class="newsletter-content">
+
+
+        <i
+            class="fa-solid fa-envelope-open-text newsletter-icon">
+        </i>
+
+
+        <h2>
+            بقى على اطلاع بالجديد
+        </h2>
+
+
+        <p>
+            توصّل بآخر المنتجات والعروض الحصرية والتخفيضات.
+        </p>
+
+
+        <form
+            class="newsletter-form"
+            id="newsletterForm">
+
+            <input
+                type="email"
+                placeholder="دخل البريد الإلكتروني ديالك"
+                id="newsletterEmail"
+                required
+            >
+
+
+            <button type="submit">
+                سجّل الآن
+            </button>
+
+        </form>
+
+        <p
+            id="newsletterMessage"
+            class="newsletter-message"
+            role="status"
+            aria-live="polite">
+        </p>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                          FOOTER
+===================================================== -->
+
+<footer class="main-footer">
+
+
+    <div class="footer-container">
+
+
+        <!-- Column 1 -->
+
+        <div class="footer-col">
+
+
+            <h2 class="footer-logo">
+                SEFROU Store
+            </h2>
+
+
+            <p>
+                Your trusted destination for premium products
+                at unbeatable prices.
+                Quality, speed, and customer satisfaction guaranteed.
+            </p>
+
+
+            <div class="footer-socials">
+
+                <a href="#">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- Column 2 -->
+
+        <div class="footer-col">
+
+
+            <h3>
+                Quick Links
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html">
+                        Products
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Categories
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        About Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+
+        </div>
+
+
+
+        <!-- Column 3 -->
+
+        <div class="footer-col">
+
+
+            <h3>
+                Customer Service
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    <a href="account.html">
+                        My Account
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Track Order
+                    </a>
+                </li>
+
+                <li>
+                    <a href="wishlist.html">
+                        Wishlist
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Privacy Policy
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Terms &amp; Conditions
+                    </a>
+                </li>
+
+            </ul>
+
+
+        </div>
+
+
+
+        <!-- Column 4 -->
+
+        <div class="footer-col">
+
+
+            <h3>
+                Contact Us
+            </h3>
+
+
+            <ul class="footer-contact">
+
+
+                <li>
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Sefrou, Fes-Meknes, Morocco
+
+                </li>
+
+
+                <li>
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    +212 7 64 22 11 04
+
+                </li>
+
+
+                <li>
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    contact@sefroustore.com
+
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- Payment -->
+
+    <div class="footer-payment">
+
+        <i class="fa-brands fa-cc-visa"></i>
+
+        <i class="fa-brands fa-cc-mastercard"></i>
+
+        <i class="fa-brands fa-cc-paypal"></i>
+
+        <i class="fa-brands fa-cc-stripe"></i>
+
+    </div>
+
+
+
+    <!-- Bottom -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 SEFROU Store. جميع الحقوق محفوظة.
+        </p>
+
+    </div>
+
+
+</footer>
+
+
+<!-- =====================================================
+                        JAVASCRIPT
+===================================================== -->
+
+<!-- Supabase Library -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Supabase Client -->
+<script src="assets/js/supabase.js"></script>
+
+<!-- Products from Supabase -->
+<script src="assets/js/products.js"></script>
+
+<!-- Search -->
+<script src="assets/js/search.js"></script>
+
+<!-- Authentication -->
+<script src="assets/js/auth.js"></script>
+
+<!-- Main Script -->
+<script src="assets/js/script.js"></script>
+
+</body>
+
+</html>

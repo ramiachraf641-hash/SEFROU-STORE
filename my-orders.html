@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+
+<head>
+
+    <!-- Cairo Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>طلباتي | SEFROU STORE</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+                         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <!-- Logo -->
+            <div class="logo">
+
+                <h1>
+                    <a href="index.html">
+                        SEFROU STORE
+                    </a>
+                </h1>
+
+            </div>
+
+
+            <!-- Navigation -->
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        الرئيسية
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html">
+                        المنتجات
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        العروض
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        من نحن
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        اتصل بنا
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <!-- Actions -->
+            <div class="nav-actions">
+
+                <button
+                    class="icon-btn"
+                    id="searchBtn"
+                    type="button"
+                    aria-label="البحث"
+                >
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </button>
+
+
+                <a
+                    href="wishlist.html"
+                    class="icon-btn"
+                    aria-label="المفضلة"
+                >
+
+                    <i class="fa-regular fa-heart"></i>
+
+                </a>
+
+
+                <a
+                    href="cart.html"
+                    class="cart-icon"
+                    id="cartIcon"
+                    aria-label="السلة"
+                >
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span id="cartCounter">
+                        0
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="my-orders.html"
+                    class="orders-header-btn"
+                    aria-label="طلباتي"
+                >
+
+                    <i class="fa-solid fa-box"></i>
+
+                    <span>
+                        طلباتي
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="account.html"
+                    class="login-btn"
+                >
+
+                    حسابي
+
+                </a>
+
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+                         SEARCH MODAL
+    ====================================================== -->
+
+    <div
+        id="searchModal"
+        class="search-modal"
+    >
+
+        <div class="search-box">
+
+
+            <div class="search-header">
+
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="ابحث عن منتج..."
+                    autocomplete="off"
+                >
+
+
+                <button
+                    id="closeSearch"
+                    class="close-search"
+                    type="button"
+                    aria-label="إغلاق البحث"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+
+            </div>
+
+
+            <div
+                id="searchResults"
+                class="search-results"
+            ></div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+                         MY ORDERS
+    ====================================================== -->
+
+    <main>
+
+        <section class="checkout-section">
+
+            <div class="page-banner-content">
+
+                <div class="breadcrumb">
+
+                    <a href="index.html">
+                        الرئيسية
+                    </a>
+
+                    <span>/</span>
+
+                    <span>
+                        طلباتي
+                    </span>
+
+                </div>
+
+
+                <h1>
+                    طلباتي
+                </h1>
+
+
+                <p>
+                    جميع الطلبات التي قمت بها من متجر صفرو
+                </p>
+
+            </div>
+
+
+            <!-- Orders Container -->
+
+            <div class="checkout-container">
+
+                <div
+                    class="checkout-form"
+                    style="grid-column: 1 / -1;"
+                >
+
+                    <div class="security-section-header">
+
+                        <div class="security-icon">
+
+                            <i class="fa-solid fa-box"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h2>
+                                طلباتي
+                            </h2>
+
+                            <p>
+                                يمكنك مشاهدة وتتبع جميع طلباتك هنا.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- JavaScript غادي يعمر هاد المكان -->
+
+                    <div id="myOrders">
+
+                        <div class="orders-loading">
+
+                            <i class="fa-solid fa-spinner fa-spin"></i>
+
+                            <p>
+                                جاري تحميل الطلبات...
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+                    CANCEL ORDER MODAL
+    ====================================================== -->
+
+    <div
+        id="cancelOrderModal"
+        class="cancel-order-modal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="cancel-order-modal-content"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="cancelOrderTitle"
+        >
+
+            <button
+                type="button"
+                class="cancel-order-close"
+                data-close-cancel-modal
+                aria-label="إغلاق"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <div class="cancel-order-icon">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+            </div>
+
+
+            <h2 id="cancelOrderTitle">
+                إلغاء الطلب
+            </h2>
+
+
+            <p>
+                واش متأكد بغيتي تلغي هاد الطلب؟
+            </p>
+
+
+            <span class="cancel-order-warning">
+                من بعد الإلغاء ما غاديش يبقى الطلب قابل للتأكيد.
+            </span>
+
+
+            <div class="cancel-order-modal-actions">
+
+                <button
+                    type="button"
+                    class="cancel-order-back"
+                    data-close-cancel-modal
+                >
+
+                    رجوع
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="confirmCancelOrderBtn"
+                    class="cancel-order-confirm"
+                >
+
+                    <i class="fa-solid fa-trash-can"></i>
+
+                    نعم، إلغاء الطلب
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+                           FOOTER
+    ====================================================== -->
+
+    <footer class="main-footer">
+
+
+        <div class="footer-container">
+
+
+            <div class="footer-col">
+
+                <h2 class="footer-logo">
+                    SEFROU STORE
+                </h2>
+
+                <p>
+                    Your trusted destination for premium products at unbeatable prices.
+                </p>
+
+            </div>
+
+
+
+            <div class="footer-col">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+
+                <ul>
+
+                    <li>
+
+                        <a href="index.html">
+                            Home
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="products.html">
+                            Products
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="#">
+                            About
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="#">
+                            Contact
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <div class="footer-col">
+
+                <h3>
+                    Contact
+                </h3>
+
+
+                <ul class="footer-contact">
+
+
+                    <li>
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        Sefrou, Fes-Meknes, Morocco
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        +212 7 64 22 11 04
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        contact@sefroustore.com
+
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            <p>
+
+                © 2026 SEFROU STORE.
+                جميع الحقوق محفوظة.
+
+            </p>
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- =====================================================
+                         JAVASCRIPT
+    ====================================================== -->
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <!-- Supabase Client -->
+    <script src="assets/js/supabase.js"></script>
+
+
+    <!-- Products -->
+    <script src="assets/js/products.js"></script>
+
+
+    <!-- Main Script -->
+    <script src="assets/js/script.js"></script>
+
+
+    <!-- Search -->
+    <script src="assets/js/search.js"></script>
+
+
+    <!-- Authentication -->
+    <script src="assets/js/auth.js"></script>
+
+
+    <!-- My Orders -->
+    <script src="assets/js/myorders.js"></script>
+
+
+</body>
+
+</html>

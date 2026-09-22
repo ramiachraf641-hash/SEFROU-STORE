@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Products | SEFROU STORE</title>
+    <meta
+        name="description"
+        content="تصفح منتجات SEFROU STORE وابحث وفلتر حسب التصنيف والترتيب.">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- ================= Header ================= -->
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <h1>
+                <a href="index.html">SEFROU STORE</a>
+            </h1>
+
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">الرئيسية</a>
+            </li>
+
+            <li>
+                <a href="products.html" class="active">المنتجات</a>
+            </li>
+
+            <li>
+                <a href="#">العروض</a>
+            </li>
+
+            <li>
+                <a href="#">من نحن</a>
+            </li>
+
+            <li>
+                <a href="#">اتصل بنا</a>
+            </li>
+
+        </ul>
+
+        <div class="nav-actions">
+
+            <button class="icon-btn" id="searchBtn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <a href="wishlist.html" class="icon-btn">
+                <i class="fa-regular fa-heart"></i>
+            </a>
+
+            <a href="cart.html" class="cart-icon" id="cartIcon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartCounter">0</span>
+            </a>
+
+           <a href="login.html" class="login-btn">
+    تسجيل الدخول
+</a>
+        </div>
+
+    </nav>
+
+</header>
+
+<!-- ================= SEARCH MODAL ================= -->
+
+<div id="searchModal" class="search-modal">
+
+    <div class="search-box">
+
+        <div class="search-header">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products...">
+
+            <button id="closeSearch" class="close-search">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div id="searchResults" class="search-results">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= Banner ================= -->
+
+<section class="page-banner">
+
+    <div class="page-banner-content">
+
+        <div class="breadcrumb">
+
+            <a href="index.html">
+                الرئيسية
+            </a>
+
+            <span>/</span>
+
+            <span>
+                المنتجات
+            </span>
+
+        </div>
+
+        <h1>
+
+            منتجاتنا
+
+        </h1>
+
+        <p>
+
+            اكتشف جميع منتجات SEFROU STORE بأفضل جودة وأفضل الأسعار.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= Toolbar ================= -->
+
+<section class="products-toolbar">
+
+    <div class="toolbar-left">
+
+        <input
+            type="text"
+            id="productsSearchInput"
+            placeholder="ابحث عن منتج...">
+
+    </div>
+
+    <div class="toolbar-right">
+
+        <select id="categoryFilter">
+            <option value="جميع التصنيفات">جميع التصنيفات</option>
+        </select>
+
+       <select id="sortFilter">
+
+            <option>ترتيب حسب</option>
+
+            <option>الأحدث</option>
+
+            <option>السعر: الأقل أولاً</option>
+
+            <option>السعر: الأعلى أولاً</option>
+
+            <option>الأكثر مبيعًا</option>
+
+        </select>
+
+        <div class="price-filter" role="group" aria-label="فلترة حسب السعر">
+            <input
+                id="minPriceFilter"
+                type="number"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+                placeholder="أقل سعر"
+                aria-label="أقل سعر">
+            <span>-</span>
+            <input
+                id="maxPriceFilter"
+                type="number"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+                placeholder="أعلى سعر"
+                aria-label="أعلى سعر">
+        </div>
+
+        <span class="products-count">
+            <span id="productsCount">جاري التحميل...</span>
+
+        </span>
+
+    </div>
+
+</section>
+
+<!-- ================= Products ================= -->
+
+<section class="products-grid">
+
+    <div class="products-grid-container" id="productsContainer">
+
+        <!-- الكاردات كتزاد أوتوماتيكياً من script.js عبر displayProducts() -->
+
+    </div>
+
+    <button
+        type="button"
+        class="load-more-btn"
+        id="loadMoreProductsBtn"
+        hidden>
+        عرض المزيد
+    </button>
+
+</section>
+
+<!-- ================= Footer ================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <!-- Column 1 -->
+
+        <div class="footer-col">
+
+            <h2 class="footer-logo">
+                SEFROU STORE
+            </h2>
+
+            <p>
+                Your trusted destination for premium products at unbeatable prices.
+                Quality, speed, and customer satisfaction guaranteed.
+            </p>
+
+            <div class="footer-socials">
+
+                <a href="#">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Column 2 -->
+
+        <div class="footer-col">
+
+            <h3>Quick Links</h3>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="products.html">Products</a></li>
+
+                <li><a href="#">Categories</a></li>
+
+                <li><a href="#">About Us</a></li>
+
+                <li><a href="#">Contact</a></li>
+
+            </ul>
+
+        </div>
+
+        <!-- Column 3 -->
+
+        <div class="footer-col">
+
+            <h3>Customer Service</h3>
+
+            <ul>
+
+                <li><a href="#">My Account</a></li>
+
+                <li><a href="cart.html">Track Order</a></li>
+
+                <li><a href="wishlist.html">Wishlist</a></li>
+
+                <li><a href="#">Privacy Policy</a></li>
+
+                <li><a href="#">Terms &amp; Conditions</a></li>
+
+            </ul>
+
+        </div>
+
+        <!-- Column 4 -->
+
+        <div class="footer-col">
+
+            <h3>Contact Us</h3>
+
+            <ul class="footer-contact">
+
+                <li>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Sefrou, Fes-Meknes, Morocco
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-phone"></i>
+                    +212 7 64 22 11 04
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-envelope"></i>
+                    contact@sefroustore.com
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="footer-payment">
+
+        <i class="fa-brands fa-cc-visa"></i>
+
+        <i class="fa-brands fa-cc-mastercard"></i>
+
+        <i class="fa-brands fa-cc-paypal"></i>
+
+        <i class="fa-brands fa-cc-stripe"></i>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 SEFROU STORE. جميع الحقوق محفوظة.
+        </p>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="assets/js/supabase.js"></script>
+
+<script src="assets/js/products.js"></script>
+
+<script src="assets/js/script.js"></script>
+
+<script src="assets/js/search.js"></script>
+
+<script src="assets/js/auth.js"></script>
+
+</body>
+
+</html>

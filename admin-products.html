@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المنتجات | SEFROU STORE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        :root { color-scheme: light; }
+        body { background: #f8f8f8; }
+        .admin-products-page { max-width: 1280px; margin: 0 auto; padding: 40px 20px 70px; font-family: "Cairo", Arial, sans-serif; }
+        .admin-products-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 28px; }
+        .admin-products-header h1 { margin: 0 0 7px; color: #171717; font-size: 32px; font-weight: 900; }
+        .admin-products-header p { margin: 0; color: #777; font-size: 14px; font-weight: 600; }
+        .admin-products-refresh, .admin-product-submit, .admin-product-edit, .admin-product-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 10px; font-family: inherit; font-weight: 800; cursor: pointer; transition: .2s ease; }
+        .admin-products-refresh { min-height: 44px; padding: 0 16px; background: #171717; color: #fff; white-space: nowrap; }
+        .admin-products-refresh:hover, .admin-product-submit:hover { background: #333; transform: translateY(-1px); }
+        .admin-products-refresh:disabled, .admin-product-submit:disabled { opacity: .7; cursor: wait; transform: none; }
+        .admin-products-grid { display: grid; grid-template-columns: minmax(300px, .92fr) minmax(0, 1.4fr); gap: 22px; align-items: start; }
+        .admin-product-panel { padding: 23px; background: #fff; border: 1px solid #e8e8e8; border-radius: 18px; box-shadow: 0 5px 20px rgba(0,0,0,.04); }
+        .admin-product-panel h2 { margin: 0 0 4px; color: #222; font-size: 20px; font-weight: 900; }
+        .admin-product-panel > p { margin: 0 0 20px; color: #888; font-size: 13px; font-weight: 600; }
+        .admin-product-form { display: grid; gap: 14px; }
+        .admin-product-field { display: grid; gap: 7px; }
+        .admin-product-field label { color: #444; font-size: 13px; font-weight: 800; }
+        .admin-product-field input, .admin-product-field textarea, .admin-product-field select { width: 100%; box-sizing: border-box; border: 1px solid #e1e1e1; border-radius: 10px; padding: 11px 12px; background: #fff; color: #222; font-family: inherit; font-size: 13px; outline: none; }
+        .admin-product-field textarea { min-height: 90px; resize: vertical; }
+        .admin-product-field input:focus, .admin-product-field textarea:focus, .admin-product-field select:focus { border-color: #777; box-shadow: 0 0 0 3px rgba(0,0,0,.05); }
+        .admin-product-fields-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .admin-product-image-preview { display: grid; place-items: center; min-height: 150px; overflow: hidden; border: 1px dashed #d2d2d2; border-radius: 12px; background: #fafafa; color: #999; }
+        .admin-product-image-preview img { width: 100%; height: 170px; object-fit: cover; }
+        .admin-product-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 10px; }
+        .admin-product-gallery-item { position: relative; min-width: 0; overflow: hidden; border: 1px solid #e6e6e6; border-radius: 10px; background: #fafafa; }
+        .admin-product-gallery-item img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+        .admin-product-gallery-item button { position: absolute; top: 5px; left: 5px; width: 27px; height: 27px; border: 0; border-radius: 50%; background: rgba(20,20,20,.82); color: #fff; cursor: pointer; }
+        .admin-product-gallery-item button:hover { background: #c92a2a; }
+        .admin-product-gallery-empty { padding: 13px; border: 1px dashed #ddd; border-radius: 10px; background: #fafafa; color: #999; font-size: 12px; font-weight: 700; text-align: center; }
+        .admin-product-gallery-note { margin: 0; color: #888; font-size: 12px; font-weight: 600; line-height: 1.7; }
+        .admin-product-check { display: flex; align-items: center; gap: 9px; color: #444; font-size: 13px; font-weight: 800; cursor: pointer; }
+        .admin-product-check input { width: 17px; height: 17px; accent-color: #171717; }
+        .admin-product-submit { min-height: 47px; background: #171717; color: #fff; }
+        .admin-product-message { display: none; padding: 11px 13px; border-radius: 10px; font-size: 13px; font-weight: 700; line-height: 1.7; }
+        .admin-product-message.show { display: block; }
+        .admin-product-message.error { background: #fff0f0; color: #b42318; }
+        .admin-product-message.success { background: #edf9f1; color: #16834b; }
+        .admin-products-toolbar { display: flex; gap: 10px; margin-bottom: 16px; }
+        .admin-products-search { flex: 1; min-width: 0; height: 44px; border: 1px solid #e1e1e1; border-radius: 10px; padding: 0 13px; font-family: inherit; outline: none; }
+        .admin-products-search:focus { border-color: #777; box-shadow: 0 0 0 3px rgba(0,0,0,.05); }
+        .admin-products-filter { min-width: 155px; height: 44px; border: 1px solid #e1e1e1; border-radius: 10px; padding: 0 10px; background: #fff; color: #333; font-family: inherit; font-size: 13px; font-weight: 700; outline: none; }
+        .admin-products-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+        .admin-products-stat { padding: 12px; border: 1px solid #eeeeee; border-radius: 11px; background: #fafafa; }
+        .admin-products-stat span { display: block; color: #888; font-size: 11px; font-weight: 700; }
+        .admin-products-stat strong { color: #222; font-size: 19px; font-weight: 900; }
+        .admin-products-list { display: grid; gap: 13px; }
+        .admin-products-loading, .admin-products-empty { padding: 48px 20px; border: 1px dashed #ddd; border-radius: 15px; background: #fafafa; text-align: center; color: #777; font-size: 14px; font-weight: 700; }
+        .admin-products-loading i, .admin-products-empty i { display: block; margin-bottom: 11px; font-size: 30px; color: #999; }
+        .admin-product-card { display: grid; grid-template-columns: 92px minmax(0, 1fr) auto; gap: 15px; align-items: center; padding: 14px; border: 1px solid #e8e8e8; border-radius: 14px; background: #fff; }
+        .admin-product-card-image { width: 92px; height: 92px; overflow: hidden; border-radius: 11px; background: #f1f1f1; display: grid; place-items: center; color: #aaa; }
+        .admin-product-card-image img { width: 100%; height: 100%; object-fit: cover; }
+        .admin-product-card h3 { margin: 0 0 5px; color: #222; font-size: 16px; font-weight: 900; }
+        .admin-product-card p { margin: 0 0 8px; color: #777; font-size: 12px; font-weight: 700; }
+        .admin-product-meta { display: flex; flex-wrap: wrap; gap: 7px; }
+        .admin-product-meta span { padding: 4px 8px; border-radius: 20px; background: #f4f4f4; color: #555; font-size: 11px; font-weight: 800; }
+        .admin-product-meta .inactive { background: #fff0f0; color: #c92a2a; }
+        .admin-product-card-actions { display: grid; gap: 8px; }
+        .admin-product-edit, .admin-product-toggle { min-width: 115px; min-height: 36px; padding: 0 10px; background: #f3f4f6; color: #333; font-size: 12px; }
+        .admin-product-toggle { background: #edf9f1; color: #16834b; }
+        .admin-product-toggle.deactivate { background: #fff4d6; color: #9a6200; }
+        .admin-access-denied { max-width: 500px; margin: 80px auto; padding: 42px 25px; background: #fff; border: 1px solid #e8e8e8; border-radius: 20px; text-align: center; }
+        .admin-access-denied i { display: block; margin-bottom: 14px; font-size: 42px; color: #c92a2a; }
+        .admin-access-denied h2 { margin: 0 0 8px; font-size: 21px; }
+        .admin-access-denied p { margin: 0; color: #777; font-weight: 600; }
+        @media (max-width: 920px) { .admin-products-grid { grid-template-columns: 1fr; } }
+        .admin-product-form-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
+        .admin-product-form-heading h2 { margin: 0 0 4px; }
+        .admin-product-form-heading p { margin: 0; color: #888; font-size: 13px; font-weight: 600; }
+        .admin-product-new { min-height: 37px; padding: 0 11px; border: 1px solid #dedede; border-radius: 9px; background: #fff; color: #333; font-family: inherit; font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap; }
+        .admin-product-new:hover { background: #f5f5f5; }
+        .admin-product-field small { color: #999; font-size: 11px; font-weight: 600; }
+        @media (max-width: 600px) { .admin-products-page { padding: 25px 12px 50px; } .admin-products-header { flex-direction: column; } .admin-products-header h1 { font-size: 26px; } .admin-products-refresh { width: 100%; } .admin-product-fields-row { grid-template-columns: 1fr; } .admin-products-toolbar { flex-direction: column; } .admin-products-filter { width: 100%; } .admin-products-stats { gap: 7px; } .admin-products-stat { padding: 10px; } .admin-product-card { grid-template-columns: 72px minmax(0, 1fr); } .admin-product-card-image { width: 72px; height: 72px; } .admin-product-card-actions { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; } .admin-product-edit, .admin-product-toggle { width: 100%; min-width: 0; } .admin-product-form-heading { flex-direction: column; } .admin-product-new { width: 100%; } }
+    </style>
+</head>
+<body>
+    <main class="admin-products-page">
+        <nav class="admin-reviews-nav" aria-label="روابط الإدارة">
+            <a href="admin-orders.html"><i class="fa-solid fa-receipt"></i> الطلبات</a>
+            <a href="admin-products.html" class="active"><i class="fa-solid fa-box"></i> المنتجات</a>
+            <a href="admin-reviews.html"><i class="fa-solid fa-star"></i> التقييمات</a>
+            <a href="admin-newsletter.html"><i class="fa-solid fa-envelope"></i> النشرة البريدية</a>
+        </nav>
+        <header class="admin-products-header">
+            <div>
+                <h1>إدارة المنتجات</h1>
+                <p>أضف وعدّل منتجات المتجر وصورها مباشرة من Supabase.</p>
+            </div>
+            <button type="button" id="adminProductsRefresh" class="admin-products-refresh"><i class="fa-solid fa-rotate"></i> تحديث المنتجات</button>
+        </header>
+
+        <section class="admin-products-grid">
+            <aside class="admin-product-panel">
+                <div class="admin-product-form-heading">
+                    <div>
+                        <h2 id="adminProductFormTitle">إضافة منتج جديد</h2>
+                        <p>الصورة تُرفع إلى Supabase Storage داخل bucket المنتجات.</p>
+                    </div>
+                    <button type="button" id="adminProductNew" class="admin-product-new"><i class="fa-solid fa-plus"></i> منتج جديد</button>
+                </div>
+                <form id="adminProductForm" class="admin-product-form">
+                    <input type="hidden" id="adminProductId">
+                    <div id="adminProductMessage" class="admin-product-message" role="alert"></div>
+                    <div class="admin-product-field"><label for="adminProductName">اسم المنتج *</label><input id="adminProductName" required maxlength="180"></div>
+                    <div class="admin-product-fields-row">
+                        <div class="admin-product-field"><label for="adminProductCategory">التصنيف *</label><select id="adminProductCategory" required><option value="">جاري تحميل التصنيفات...</option></select></div>
+                        <div class="admin-product-field"><label for="adminProductStock">المخزون *</label><input id="adminProductStock" type="number" min="0" step="1" required value="0"></div>
+                    </div>
+                    <div class="admin-product-fields-row">
+                        <div class="admin-product-field"><label for="adminProductPrice">السعر (DH) *</label><input id="adminProductPrice" type="number" min="0" step="0.01" required></div>
+                        <div class="admin-product-field"><label for="adminProductOldPrice">السعر السابق (DH)</label><input id="adminProductOldPrice" type="number" min="0" step="0.01"></div>
+                    </div>
+                    <div class="admin-product-field"><label for="adminProductDescription">الوصف</label><textarea id="adminProductDescription" maxlength="2000"></textarea></div>
+                    <div class="admin-product-field"><label for="adminProductRating">التقييم</label><input id="adminProductRating" type="number" min="0" max="5" step="0.1" value="0"></div>
+                    <div class="admin-product-field"><label for="adminProductImage">صورة المنتج <span id="adminProductImageRequired">*</span></label><input id="adminProductImage" type="file" accept="image/jpeg,image/png,image/webp"><small>الصورة مطلوبة للمنتج الجديد. JPG أو PNG أو WebP، حتى 5 MB.</small></div>
+                    <div id="adminProductImagePreview" class="admin-product-image-preview"><i class="fa-solid fa-image"></i></div>
+                    <div class="admin-product-field">
+                        <label for="adminProductAdditionalImages">صور إضافية للمعرض</label>
+                        <input id="adminProductAdditionalImages" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+                        <small>يمكنك اختيار عدة صور. الصورة الرئيسية أعلاه تبقى مستقلة.</small>
+                    </div>
+                    <div id="adminProductSelectedGallery" class="admin-product-gallery" aria-live="polite"></div>
+                    <div class="admin-product-field">
+                        <label>الصور الإضافية الحالية</label>
+                        <div id="adminProductExistingGallery" class="admin-product-gallery" aria-live="polite"><div class="admin-product-gallery-empty">اختر منتجًا لإظهار صوره الإضافية.</div></div>
+                        <p class="admin-product-gallery-note">حذف الصورة من هنا يخفيها من معرض المنتج فقط، ولا يحذف الصورة الرئيسية.</p>
+                    </div>
+                    <label class="admin-product-check"><input id="adminProductActive" type="checkbox" checked> المنتج ظاهر للزبائن</label>
+                    <button type="submit" id="adminProductSubmit" class="admin-product-submit"><i class="fa-solid fa-plus"></i> حفظ المنتج</button>
+                </form>
+            </aside>
+
+            <section class="admin-product-panel">
+                <h2>كل المنتجات</h2>
+                <p>يشمل هذا العرض المنتجات النشطة وغير النشطة.</p>
+                <div class="admin-products-toolbar">
+                    <input id="adminProductsSearch" class="admin-products-search" type="search" placeholder="ابحث باسم المنتج أو التصنيف...">
+                    <select id="adminProductsFilter" class="admin-products-filter">
+                        <option value="all">كل الحالات</option>
+                        <option value="active">الظاهرة فقط</option>
+                        <option value="inactive">المخفية فقط</option>
+                    </select>
+                </div>
+                <div class="admin-products-stats">
+                    <div class="admin-products-stat"><span>كل المنتجات</span><strong id="adminProductsCount">0</strong></div>
+                    <div class="admin-products-stat"><span>الظاهرة</span><strong id="adminProductsActiveCount">0</strong></div>
+                    <div class="admin-products-stat"><span>المخفية</span><strong id="adminProductsInactiveCount">0</strong></div>
+                </div>
+                <div id="adminProductsList" class="admin-products-list" aria-live="polite"><div class="admin-products-loading"><i class="fa-solid fa-spinner fa-spin"></i> جاري تحميل المنتجات...</div></div>
+            </section>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase.js"></script>
+    <script src="assets/js/admin-products.js"></script>
+</body>
+</html>

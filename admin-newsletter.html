@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>النشرة البريدية | SEFROU STORE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <main class="admin-newsletter-page">
+        <nav class="admin-reviews-nav" aria-label="روابط الإدارة">
+            <a href="admin-orders.html"><i class="fa-solid fa-receipt"></i> الطلبات</a>
+            <a href="admin-products.html"><i class="fa-solid fa-box"></i> المنتجات</a>
+            <a href="admin-reviews.html"><i class="fa-solid fa-star"></i> التقييمات</a>
+            <a href="admin-newsletter.html" class="active"><i class="fa-solid fa-envelope"></i> النشرة البريدية</a>
+        </nav>
+
+        <header class="admin-newsletter-header">
+            <div>
+                <span class="admin-newsletter-eyebrow">ADMIN DASHBOARD</span>
+                <h1>إدارة النشرة البريدية</h1>
+                <p>اطّلع على المشتركين في عروض ومنتجات SEFROU STORE.</p>
+            </div>
+            <button type="button" id="adminNewsletterRefresh" class="admin-newsletter-refresh">
+                <i class="fa-solid fa-rotate"></i> تحديث القائمة
+            </button>
+        </header>
+
+        <section class="admin-newsletter-toolbar" aria-label="البحث في المشتركين">
+            <label class="admin-newsletter-search-wrap">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input id="adminNewsletterSearch" type="search" placeholder="ابحث بالبريد الإلكتروني..." autocomplete="off">
+            </label>
+            <div class="admin-newsletter-total"><span>عدد المشتركين</span><strong id="adminNewsletterTotal">0</strong></div>
+        </section>
+
+        <div id="adminNewsletterFeedback" class="admin-newsletter-feedback" role="status" aria-live="polite"></div>
+
+        <section class="admin-newsletter-compose" aria-labelledby="adminNewsletterComposeTitle">
+            <div>
+                <span class="admin-newsletter-eyebrow">CAMPAIGN</span>
+                <h2 id="adminNewsletterComposeTitle">إرسال نشرة جديدة</h2>
+                <p>سيتم إرسال الرسالة فقط إلى المشتركين الحاليين.</p>
+            </div>
+            <form id="adminNewsletterComposeForm" class="admin-newsletter-compose-form">
+                <label>الموضوع<input id="adminNewsletterSubject" type="text" maxlength="200" required placeholder="مثلاً: جديد SEFROU STORE"></label>
+                <label>محتوى الرسالة<textarea id="adminNewsletterContent" rows="7" maxlength="100000" required placeholder="اكتب محتوى النشرة هنا..."></textarea></label>
+                <button type="submit" id="adminNewsletterSend" class="admin-newsletter-send"><i class="fa-regular fa-paper-plane"></i> إرسال النشرة</button>
+            </form>
+        </section>
+
+        <section class="admin-newsletter-table-card">
+            <div class="admin-newsletter-table-wrap">
+                <table class="admin-newsletter-table">
+                    <thead><tr><th>البريد الإلكتروني</th><th>تاريخ الاشتراك</th><th>الإجراءات</th></tr></thead>
+                    <tbody id="adminNewsletterList">
+                        <tr><td colspan="3" class="admin-newsletter-loading"><i class="fa-solid fa-spinner fa-spin"></i> جاري تحميل المشتركين...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase.js"></script>
+    <script src="assets/js/admin-newsletter.js"></script>
+</body>
+</html>

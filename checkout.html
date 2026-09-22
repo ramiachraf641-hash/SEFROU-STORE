@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | SEFROU STORE</title>
+    <meta
+        name="description"
+        content="أكمل معلومات التوصيل وأكد طلبك من SEFROU STORE.">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <!-- ================= Header ================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+
+                <h1>
+                    <a href="index.html">SEFROU STORE</a>
+                </h1>
+
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">الرئيسية</a>
+                </li>
+
+                <li>
+                    <a href="products.html">المنتجات</a>
+                </li>
+
+                <li>
+                    <a href="#">العروض</a>
+                </li>
+
+                <li>
+                    <a href="#">من نحن</a>
+                </li>
+
+                <li>
+                    <a href="#">اتصل بنا</a>
+                </li>
+
+            </ul>
+
+            <div class="nav-actions">
+
+                <button class="icon-btn" id="searchBtn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <a href="wishlist.html" class="icon-btn">
+                    <i class="fa-regular fa-heart"></i>
+                </a>
+
+                <a href="cart.html" class="cart-icon" id="cartIcon">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span id="cartCounter">0</span>
+
+                </a>
+
+               <a href="login.html" class="login-btn">
+    تسجيل الدخول
+</a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= Checkout ================= -->
+
+    <main>
+
+        <section class="checkout-section">
+
+            <div class="page-banner-content">
+
+                <div class="breadcrumb">
+
+                    <a href="index.html">
+                        الرئيسية
+                    </a>
+
+                    <span>/</span>
+
+                    <span>
+                        إتمام الطلب
+                    </span>
+
+                </div>
+
+                <h1>
+                    إتمام الطلب
+                </h1>
+
+                <p>
+                    أكمل معلوماتك لتأكيد طلبك.
+                </p>
+
+            </div>
+
+
+            <div class="checkout-container">
+
+
+                <!-- Customer Information -->
+
+                <div class="checkout-form">
+
+                    <h2>
+                        معلومات الزبون
+                    </h2>
+
+                    <div class="form-group">
+
+                        <label for="customerName">
+                            الاسم الكامل
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerName"
+                            placeholder="أدخل اسمك الكامل"
+                            autocomplete="name"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="customerPhone">
+                            رقم الهاتف
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="customerPhone"
+                            placeholder="أدخل رقم الهاتف"
+                            autocomplete="tel"
+                            inputmode="tel"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="customerEmail">
+                            البريد الإلكتروني
+                        </label>
+
+                        <input
+                            type="email"
+                            id="customerEmail"
+                            placeholder="example@email.com"
+                            autocomplete="email">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="customerCity">
+                            المدينة
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerCity"
+                            placeholder="أدخل المدينة"
+                            autocomplete="address-level2"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="customerAddress">
+                            العنوان
+                        </label>
+
+                        <textarea
+                            id="customerAddress"
+                            rows="4"
+                            placeholder="أدخل عنوان التوصيل بالتفصيل"
+                            autocomplete="street-address"
+                            required></textarea>
+
+                    </div>
+
+
+                    <!-- Payment -->
+
+                    <div class="payment-section">
+
+                        <h2>
+                            طريقة الدفع
+                        </h2>
+
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="paymentMethod"
+                                value="cash"
+                                checked>
+
+                            <span>
+                                الدفع عند الاستلام
+                            </span>
+
+                        </label>
+
+                        <p class="cod-payment-note">
+                            <i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i>
+                            الدفع عند الاستلام — ستدفع عند استلام طلبك.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Order Summary -->
+
+                <div class="checkout-summary">
+
+                    <h2>
+                        ملخص الطلب
+                    </h2>
+
+                    <div
+                        class="checkout-products"
+                        id="checkoutProducts">
+
+                        <!-- المنتجات غادي تزاد هنا من JavaScript -->
+
+                    </div>
+
+
+                    <div class="checkout-total">
+
+                        <div class="total-row">
+
+                            <span>
+                                المجموع
+                            </span>
+
+                            <strong id="checkoutTotal">
+                                0.00 DH
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+<div id="checkoutError" class="checkout-error"></div>
+                    <button
+                        type="button"
+                        class="place-order-btn"
+                        id="placeOrderBtn">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        تأكيد الطلب
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= Footer ================= -->
+
+    <footer>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 SEFROU STORE. جميع الحقوق محفوظة.
+            </p>
+
+        </div>
+
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="assets/js/supabase.js"></script>
+
+<script src="assets/js/products.js"></script>
+
+<script src="assets/js/script.js"></script>
+
+<script src="assets/js/search.js"></script>
+
+<script src="assets/js/auth.js"></script>
+</body>
+
+</html>
