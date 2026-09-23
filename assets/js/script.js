@@ -1547,6 +1547,18 @@ if (categoryFromUrl) {
 
 function getProductCategories() {
 
+    const databaseCategories = Array.isArray(window.categories) ? window.categories : [];
+
+    if (databaseCategories.length > 0) {
+        return databaseCategories.map(category => {
+            const name = category.name || category.title || category.slug || "";
+            const categoryProducts = (window.products || []).filter(product =>
+                String(product.category || "").trim().toLowerCase() === String(name).trim().toLowerCase()
+            );
+            return { name, products: categoryProducts, count: categoryProducts.length, image: category.image || categoryProducts.find(item => item.image)?.image || "" };
+        }).filter(category => category.name);
+    }
+
     const categoryMap = new Map();
 
     (Array.isArray(window.products) ? window.products : [])

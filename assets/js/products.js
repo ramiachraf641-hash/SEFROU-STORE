@@ -211,7 +211,9 @@ async function loadProducts() {
         categoryRows.map(category => ({
             ...category,
             image: getRowImage(category, "categories")
-        }));
+        }))
+        .filter(category => category.is_active !== false)
+        .sort((first, second) => Number(first.sort_order || 0) - Number(second.sort_order || 0) || Number(first.id || 0) - Number(second.id || 0));
 
     const categoryNamesById = new Map(
         window.categories
